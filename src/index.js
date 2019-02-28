@@ -392,6 +392,11 @@ export default class extends Component {
    * @param  {string} dir    'x' || 'y'
    */
   updateIndex = (offset, dir, cb) => {
+    /** hook begin */ hook
+    if (offset === undefined || this.internals.offset === undefined) {
+      return;
+    }
+    /** hook end */
     const state = this.state
     let index = state.index
     if (!this.internals.offset)   // Android not setting this onLayout first? https://github.com/leecade/react-native-swiper/issues/582
